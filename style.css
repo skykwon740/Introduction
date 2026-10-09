@@ -1,0 +1,250 @@
+/* 영문·숫자용 IBM Plex Mono와 한글용 Noto Sans KR 불러오기 */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+/* 페이지 전체에서 반복해 사용할 색상 */
+:root {
+  --blue: rgb(0, 0, 255);
+  --ink: #11111a;
+  --paper: #f6f6f3;
+  --line: #d9d9e5;
+}
+
+/* 여백과 크기를 예측하기 쉽게 설정 */
+* {
+  box-sizing: border-box;
+}
+
+/* 기본 글자, 배경, 줄 간격 */
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "IBM Plex Mono", "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* 소개 내용과 푸터의 읽기 좋은 최대 너비 */
+main,
+footer {
+  width: min(92%, 960px);
+  margin: 0 auto;
+}
+
+/* 첫 화면 전체와 위·좌우 여백 */
+header {
+  width: 95%;
+  margin: clamp(18px, 3vw, 48px) auto 0;
+}
+
+/* 위 여백: 왼쪽 라벨과 오른쪽 제목을 본문 크기로 배치 */
+.intro-heading {
+  min-height: 30px;
+}
+
+.site-label {
+  float: left;
+  margin: 0;
+  color: var(--blue);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+
+/* 제목 공통 여백과 줄 간격 */
+h2 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* 위 여백 오른쪽에 맞춘 페이지 제목 */
+h1 {
+  color: var(--blue);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  text-align: right;
+}
+
+/* 위 제목 줄 아래를 채우는 반응형 파란 영역 */
+.hero-panel {
+  position: relative;
+  min-height: calc(100svh - clamp(18px, 3vw, 48px) - 48px);
+  margin-top: 18px;
+  background: var(--blue);
+}
+
+/* 파란 영역 안의 스크롤 안내 */
+.hero-panel::after {
+  content: "↓";
+  position: absolute;
+  right: 50%;
+  bottom: clamp(28px, 5vw, 56px);
+  color: white;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+
+/* 첫 화면 다음의 본문 영역 */
+main {
+  padding: 26px 0 70px;
+}
+
+/* 각 소개 영역을 여백으로 구분 */
+section {
+  padding: 38px 0 42px;
+  width: 95%;
+  /* border-bottom: 1px solid var(--blue); */
+}
+
+/* 소제목은 파란색으로 정보의 단계를 구분 */
+h2 {
+  margin-bottom: 18px;
+  color: var(--blue);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  letter-spacing: -0.045em;
+}
+
+/* 문단의 읽기 좋은 줄 길이와 간격 */
+p {
+  max-width: 720px;
+  margin: 0 0 12px;
+}
+
+/* 목록 들여쓰기와 파란색 불릿 */
+ul {
+  margin: 0;
+  padding-left: 1.25em;
+}
+
+/* 목록 표시 색상 */
+li::marker {
+  color: var(--blue);
+}
+
+/* 링크는 파란색 밑줄로 구분 */
+a {
+  color: var(--blue);
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* 마우스·키보드로 링크를 선택했을 때의 표시 */
+a:hover,
+a:focus-visible {
+  color: white;
+  background: var(--blue);
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.interest-row {
+  margin: 0 -8px;
+  font-size: 0;
+}
+
+.horizontal-list {
+  display: inline-block;
+  width: calc(33.333% - 16px);
+  margin: 0 8px 0px;
+  border-bottom: 0;
+  vertical-align: top;
+  font-size: 1rem;
+}
+
+/* 작품 3개 영역의 아래쪽 간격 */
+.works {
+  padding-bottom: 24px;
+}
+
+/* 작품 목록의 기본 번호와 들여쓰기 제거 */
+.work-list {
+  margin: 0 -8px;
+  padding: 0;
+  list-style: none;
+  font-size: 0;
+}
+
+/* Flexbox/Grid 없이 인라인 블록으로 만든 작품 카드 3열 */
+.work-item {
+  display: inline-block;
+  width: calc(33.333% - 16px);
+  min-width: 0;
+  margin: 0 8px 22px;
+  vertical-align: top;
+  font-size: 1rem;
+}
+
+/* 실제 작품 사진을 넣기 전의 이미지 자리 */
+.work-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 12px;
+  border: 4px solid var(--blue);
+  object-fit: cover;
+}
+
+/* 작품 링크가 카드 아래에서 자연스럽게 줄바꿈되도록 설정 */
+.work-item a {
+  display: block;
+  line-height: 1.45;
+}
+
+/* 페이지 마지막 정보 */
+footer {
+  width: 95%;
+  margin: 0 auto;
+  padding: 22px 0 42px;
+  border-top: 2px solid var(--blue);
+  color: var(--blue);
+  font-size: 0.9rem;
+}
+
+/* 푸터 문단의 기본 여백 제거 */
+footer p {
+  margin: 0;
+}
+
+/* 창이 좁아지면 작품 카드를 2열로 조정 */
+@media (max-width: 700px) {
+  section {
+    padding: 30px 0 34px;
+  }
+
+    .horizontal-list {
+    width: calc(50% - 16px);
+  }
+
+  .work-item {
+    width: calc(50% - 20px);
+  }
+}
+
+/* 휴대폰 폭에서는 작품 카드를 1열로 표시 */
+@media (max-width: 460px) {
+  body {
+    font-size: 15px;
+  }
+
+    .horizontal-list {
+    display: block;
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .work-item {
+    display: block;
+    width: auto;
+    margin-bottom: 28px;
+  }
+
+  .work-image {
+    aspect-ratio: 16 / 9;
+  }
+}
